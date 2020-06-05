@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wines</h1>
+
+<h4><%= link_to 'New Wine', new_wine_path %></h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Wine ID</th>
+      <th scope="col">Wine Name</th>
+      <th scope="col">Strains & Percentage</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wines.each do |wine| %>
+    <tr>
+      <th scope="row"><%= wine.id %></th>
+      <td><%= wine.name %></td>
+      <td><%= wine.wine_strains_names %></td>
+      <td><%= wine.wine_rates %></td>
+      <td>
+          <%= link_to 'Show', wine %>
+          <%= link_to 'Edit', edit_wine_path(wine) %>
+          <%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<br>

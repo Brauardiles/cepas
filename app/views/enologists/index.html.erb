@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Enologists</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Nationality</th>
+      <th scope="col">Magazine</th>
+      <th scope="col">Position</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @enologists.each do |enologist| %>
+      <tr>
+        <td><%= enologist.name %></td>
+        <td><%= enologist.age %></td>
+        <td><%= enologist.nationality %></td>
+        <td><%= enologist.magazines.map(&:name) %></td>
+        <td><%= enologist.positions.map(&:name) %></td>
+        <td>
+          <%= link_to 'Show', enologist, class:"text-light" %>
+          <%= link_to 'Edit', edit_enologist_path(enologist), class:"text-light"  %>
+          <%= link_to 'Destroy', enologist, class:"text-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<%= link_to 'New Enologist', new_enologist_path, class:"btn btn-primary"  %>

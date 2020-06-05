@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Assemblies</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Wine</th>
+      <th scope="col">Strain</th>
+      <th scope="col">Percentage</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assemblies.each do |assembly| %>
+    <tr>
+      <td><%= assembly.wine.name %></td>
+      <td><%= assembly.strain.name %></td>
+      <td><%= assembly.percentage %></td>
+      <td>
+        <%= link_to 'Show', assembly %>
+        <%= link_to 'Edit', edit_assembly_path(assembly) %>
+        <%= link_to 'Destroy', assembly, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assembly', new_assembly_path, class:"btn btn-primary" %>

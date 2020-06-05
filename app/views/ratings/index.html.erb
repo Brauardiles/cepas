@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ratings</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Wines</th>
+      <th scope="col">Enologist</th>
+      <th scope="col">Score</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.wine.name %></td>
+        <td><%= rating.enologist.name %></td>
+        <td><%= rating.score %></td>
+        <td>
+          <%= link_to 'Show', rating, class:"text-light" %>
+          <%= link_to 'Edit', edit_rating_path(rating), class:"text-light" %>
+          <%= link_to 'Destroy', rating, class:"text-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Rating', new_rating_path, class:"btn btn-primary" %>
